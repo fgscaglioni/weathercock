@@ -1,0 +1,9 @@
+{
+  "name": "weathercock",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    }
+  },
+  "type": "angular"
+}
