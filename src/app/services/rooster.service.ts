@@ -12,20 +12,17 @@ export class RoosterService {
   // Azul: tempo bom e seco com temperatura acima dos 27°C.
   getRooster(humidity: number, temperature: number) {
     const randomNumber = Math.floor(Math.random() * 4) + 1;
+    let color = 'white'
 
     if (temperature < 17 && humidity > 95) {
-      return `assets/img/pink${randomNumber}.jpg`;
+      color = 'pink'
+    } else if ((temperature >= 17 && temperature < 27) || temperature < 17) {
+      color = 'white'
+    } else if (temperature >= 27) {
+      color = 'blue'
     }
-    if (
-      (temperature >= 17 && temperature < 27) ||
-      temperature < 17
-    ) {
-      return `assets/img/white${randomNumber}.jpg`;
-    }
-    if (temperature >= 27) {
-      return `assets/img/blue${randomNumber}.jpg`;
-    }
-    return ''
+
+    return `assets/img/${color}${randomNumber}.jpg`;
   }
 
   getWeatherInfo(openWeatherResponse: OpenWeatherWeatherResponseInterface): WeatherInfoType {
